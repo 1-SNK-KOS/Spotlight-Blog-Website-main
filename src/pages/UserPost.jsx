@@ -25,7 +25,7 @@ function UserPost() {
         if (userStatus) {
             appwriteService
                 .getAllPost([Query.equal("user_Id", [String(userData.userData.$id)])])
-                .then((post) => dispatch(setPosts(post.documents)));
+                .then((userPostData) => setPosts(userPostData.documents));
         }
     }, [userData, userStatus]);
 
