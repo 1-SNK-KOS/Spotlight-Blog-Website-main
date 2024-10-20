@@ -4,17 +4,17 @@ import appwriteService from '../appwrite/config'
 import { useSelector } from 'react-redux'
 
 function AllPosts() {
-    // const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState([])
     
-    const posts = useSelector(state => state.post.allPostData)
+    // const posts = useSelector(state => state.post.allPostData)
 
-    // useEffect(() => {
-    //     appwriteService.getAllPost().then((posts) => {
-    //         if (posts) {
-    //             setPosts(posts.documents)
-    //         }
-    //     })
-    // }, [])
+    useEffect(() => {
+        appwriteService.getAllPost().then((posts) => {
+            if (posts) {
+                setPosts(posts.documents)
+            }
+        })
+    }, [])
 
     return (
         <div className="w-full  py-8">

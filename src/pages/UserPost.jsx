@@ -10,8 +10,8 @@ function UserPost() {
     const userStatus = useSelector((state) => state.auth.status);
     const userData = useSelector((state) => state.auth.userData);
     // const dispatch = useDispatch();
-    // const [posts, setPosts] = useState([]);
-    const posts = useSelector(state => state.post.userPostData);
+    const [posts, setPosts] = useState([]);
+    // const posts = useSelector(state => state.post.userPostData);
      
     // console.log(userData);
 
@@ -20,17 +20,17 @@ function UserPost() {
      
     // },[userData,userStatus])
 
-    // useEffect(() => {
-    //     console.log("USEEFFECT :: HOME PAGE");
-    //     if (userStatus) {
-    //         appwriteService
-    //             .getAllPost([Query.equal("user_Id", [String(userData.userData.$id)])])
-    //             .then((post) => dispatch(setPosts(post.documents)));
-    //     }
-    // }, [userData, userStatus]);
+    useEffect(() => {
+        // console.log("USEEFFECT :: HOME PAGE");
+        if (userStatus) {
+            appwriteService
+                .getAllPost([Query.equal("user_Id", [String(userData.userData.$id)])])
+                .then((post) => dispatch(setPosts(post.documents)));
+        }
+    }, [userData, userStatus]);
 
     // const posts = useSelector(state => state.post.userPostData)
-    console.log("user post :: post :: ", posts);
+    // console.log("user post :: post :: ", posts);
     return (
         <div className="w-full  py-8">
             <div>

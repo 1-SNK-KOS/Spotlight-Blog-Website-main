@@ -27,24 +27,24 @@ class AuthService {
             )
 
             if (newUser) {
-                console.log('User Account Created :: auth.js :: ', newUser);   //REVIEW  
+                // console.log('User Account Created :: auth.js :: ', newUser);   //REVIEW  
                 const userLogin = this.login({ email, password });
 
                 if (userLogin) {
-                    console.log('User Logged In :: auth.js :: ', userLogin);  //REVIEW  
+                    // console.log('User Logged In :: auth.js :: ', userLogin);  //REVIEW  
                     return userLogin;
                 } else {
-                    console.log('User Logged In Failed:: auth.js :: ', userLogin);   //REVIEW  
+                    // console.log('User Logged In Failed:: auth.js :: ', userLogin);   //REVIEW  
                 }
 
                 return newUser
             } else {
-                console.log('User Account Creation Failed  :: auth.js :: ', newUser);  //REVIEW  
+                // console.log('User Account Creation Failed  :: auth.js :: ', newUser);  //REVIEW  
             }
 
 
         } catch (error) {
-            console.log(`Error while creating Account , Try Again :: ${error.message}`);   //REVIEW  
+            // console.log(`Error while creating Account , Try Again :: ${error.message}`);   //REVIEW  
             throw new Error(`Error while creating Account , Try Again :: ${error.message}`)
         }
     }
@@ -58,13 +58,13 @@ class AuthService {
             )
 
             if (session) {
-                console.log('User logged :: authjs :: ', session);      //REVIEW  
+                // console.log('User logged :: authjs :: ', session);      //REVIEW  
             } else {
-                console.log('User logged failed :: authjs :: ', session);       //REVIEW  
+                // console.log('User logged failed :: authjs :: ', session);       //REVIEW  
             }
             return session;
         } catch (error) {
-            console.log(`Error while loggin Account , Try Again :: ${error.message}`);   //REVIEW  
+            // console.log(`Error while loggin Account , Try Again :: ${error.message}`);   //REVIEW  
             throw new Error(`Error while login, Try Again :: ${error.message}`)
         }
     }
@@ -75,14 +75,14 @@ class AuthService {
             const userLogout = await this.account.deleteSessions();
 
             if (userLogout) {
-                console.log('User logged successfully :: authjs :: ', userLogout);  //REVIEW 
+                // console.log('User logged successfully :: authjs :: ', userLogout);  //REVIEW 
             } else {
-                console.log('User logged failed :: authjs :: ', userLogout);     //REVIEW  
+                // console.log('User logged failed :: authjs :: ', userLogout);     //REVIEW  
             }
 
             return userLogout;
         } catch (error) {
-            console.log('User logged failed catch :: authjs :: ', error);     //REVIEW   
+            // console.log('User logged failed catch :: authjs :: ', error);     //REVIEW   
             throw new Error(`Error while logout, Try Again :: ${error.message}`)
         }
     }
@@ -93,14 +93,14 @@ class AuthService {
             const userStatus = await this.account.get();
 
             if (userStatus) {
-                console.log('User Status :: authjs :: ', userStatus);     //REVIEW   
+                // console.log('User Status :: authjs :: ', userStatus);     //REVIEW   
             } else {
-                console.log('User Status failed :: authjs :: ', userStatus);      //REVIEW   
+                // console.log('User Status failed :: authjs :: ', userStatus);      //REVIEW   
             }
 
             return userStatus;
         } catch (error) {
-            console.log('User Status failed Error :: authjs :: ', error);       //REVIEW   
+            // console.log('User Status failed Error :: authjs :: ', error);       //REVIEW   
             throw new Error(`Error while Current USer, Try Again :: ${error.message}`)
         }
 

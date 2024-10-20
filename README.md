@@ -24,7 +24,7 @@ Spotlight is a Blog Application that allows users to write articles, share them,
 #
 ![2](https://i.postimg.cc/qBXNg22C/Screenshot-2024-04-30-221641.png)
 #
-![3](https://i.postimg.cc/ZYVVpvSC/Screenshot-2024-04-30-221810.png)
+[![3.png](https://i.postimg.cc/4xJxqvjq/4.png)](https://postimg.cc/4mSGhcfQ))
 
 ![4](https://i.postimg.cc/mgNc1Mvn/Screenshot-2024-04-30-221913.png)
 #

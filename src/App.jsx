@@ -25,25 +25,25 @@ function App() {
       })
       .finally(() => setLoading(false))
 
-    appwriteService.getAllPost()
-      .then((allPostData) => {
-        if (allPostData) {
-          dispatch(allPosts(allPostData.documents))
-        }
-      })
+    // appwriteService.getAllPost()
+    //   .then((allPostData) => {
+    //     if (allPostData) {
+    //       dispatch(allPosts(allPostData.documents))
+    //     }
+    //   })
 
   }, [])
 
-  useEffect(()=>{
-    if (userStatus) {
-      console.log("sfsfnEfose",userData)
-      appwriteService
-          .getAllPost([Query.equal("user_Id", [String(userData.userData.$id)])])
-          .then((userPostData) => dispatch(userPosts(userPostData.documents)));
-  }
-  },[userStatus])
+  // useEffect(()=>{
+  //   if (userStatus) {
+  //     console.log("sfsfnEfose",userData)
+  //     appwriteService
+  //         .getAllPost([Query.equal("user_Id", [String(userData.userData.$id)])])
+  //         .then((userPostData) => dispatch(userPosts(userPostData.documents)));
+  // }
+  // },[userStatus])
 
-   console.log("dfds",userStatus)
+  //  console.log("dfds",userStatus)
   return !loading ? (
     <div className="min-h-[100dvh] flex flex-col justify-between bg-black text-white">
       <Header />

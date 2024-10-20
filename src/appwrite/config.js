@@ -18,23 +18,24 @@ class PostService {
 
 
     async createPost({ title, slug, content, status, user_Id, featuredImage }) {
+        const con = String(content)
         try {
             const newPost = await this.database.createDocument(
                 credentails.appwrite_database,
                 credentails.appwrite_collection,
                 slug,
-                { title, content, status, user_Id, featuredImage }
+                { title, content : con, status, user_Id, featuredImage }
             )
 
             if (newPost) {
-                console.log('Create Post :: configjs :: ', newPost);           //REVIEW  
+                // console.log('Create Post :: configjs :: ', newPost);           //REVIEW  
             } else {
-                console.log('Create Post failed :: configjs :: ', newPost);      //REVIEW 
+                // console.log('Create Post failed :: configjs :: ', newPost);      //REVIEW 
             }
             return newPost;
 
         } catch (error) {
-            console.log('Create Post ERROR  :: configjs :: ', error);   //REVIEW  
+            // console.log('Create Post ERROR  :: configjs :: ', error);   //REVIEW  
             throw new Error(`Error while createPost, Try Again :: ${error.message}`)
         }
     }
@@ -51,15 +52,15 @@ class PostService {
 
 
             if (postUpdate) {
-                console.log('Post update :: confjs :: ', postUpdate);    //REVIEW   
+                // console.log('Post update :: confjs :: ', postUpdate);    //REVIEW   
             } else {
-                console.log('Post update failed :: confjs :: ', postUpdate);    //REVIEW   
+                // console.log('Post update failed :: confjs :: ', postUpdate);    //REVIEW   
             }
 
 
             return postUpdate;
         } catch (error) {
-            console.log('Post update ERROR  :: confjs :: ', error);           //REVIEW   
+            // console.log('Post update ERROR  :: confjs :: ', error);           //REVIEW   
             throw new Error(`Error while updatePost, Try Again :: ${error.message}`)
         }
     }
@@ -74,14 +75,14 @@ class PostService {
             )
 
             if (postDelete) {
-                console.log('Post delete :: ', postDelete);      //REVIEW   
+                // console.log('Post delete :: ', postDelete);      //REVIEW   
             } else {
-                console.log('Post delete falied :: ', postDelete);    //REVIEW   
+                // console.log('Post delete falied :: ', postDelete);    //REVIEW   
             }
 
             return postDelete;
         } catch (error) {
-            console.log('Post delete ERROR :: ', error);        //REVIEW   
+            // console.log('Post delete ERROR :: ', error);        //REVIEW   
             throw new Error(`Error while deletePost, Try Again :: ${error.message}`)
         }
     }
@@ -97,14 +98,14 @@ class PostService {
             )
 
             if (post) {
-                console.log('Post Fetched :: confjs :: ', post);        //REVIEW   
+                // console.log('Post Fetched :: confjs :: ', post);        //REVIEW   
             } else {
-                console.log('Post Fetched failed:: confjs :: ', post);     //REVIEW   
+                // console.log('Post Fetched failed:: confjs :: ', post);     //REVIEW   
             }
 
             return post;
         } catch (error) {
-            console.log('Post Fetched Error  :: confjs :: ', error);    //REVIEW   
+            // console.log('Post Fetched Error  :: confjs :: ', error);    //REVIEW   
             throw new Error(`Error get Post, Try Again :: ${error.message}`)
         }
 
@@ -121,14 +122,14 @@ class PostService {
             )
 
             if (getAllPost) {
-                console.log('getAllPost success :: confjs :: ', getAllPost);  //REVIEW   
+                // console.log('getAllPost success :: confjs :: ', getAllPost);  //REVIEW   
             } else {
-                console.log('getAllPost failed :: confjs :: ', getAllPost);  //REVIEW   
+                // console.log('getAllPost failed :: confjs :: ', getAllPost);  //REVIEW   
             }
 
             return getAllPost;
         } catch (error) {
-            console.log('getAllPost ERROR  :: confjs :: ', error)   //REVIEW   
+            // console.log('getAllPost ERROR  :: confjs :: ', error)   //REVIEW   
             throw new Error(`Error getAllPost, Try Again :: ${error.message}`)
         }
 
@@ -145,16 +146,16 @@ class PostService {
             )
 
             if (userPosts) {
-                console.log('getUserPosts success :: confjs :: ', userPosts);   //REVIEW   
+                // console.log('getUserPosts success :: confjs :: ', userPosts);   //REVIEW   
 
             } else {
-                console.log('getUserPosts failed :: confjs :: ', userPosts); //REVIEW   
+                // console.log('getUserPosts failed :: confjs :: ', userPosts); //REVIEW   
 
             }
 
             return userPosts;
         } catch (error) {
-            console.log('getUserPost ERROR :: confjs :: ', error);    //REVIEW   
+            // console.log('getUserPost ERROR :: confjs :: ', error);    //REVIEW   
             throw new Error(`Error while getUserPost, Try Again :: ${error.message}`)
         }
     }
@@ -171,14 +172,14 @@ class PostService {
             )
 
             if (fileResp) {
-                console.log("File uploaded :: ", fileResp);      //REVIEW   
+                // console.log("File uploaded :: ", fileResp);      //REVIEW   
             } else {
-                console.log("Retry File upload :: ", fileResp);    //REVIEW   
+                // console.log("Retry File upload :: ", fileResp);    //REVIEW   
             }
 
             return fileResp
         } catch (error) {
-            console.log("Error :: configuration.js :: uploadFile :: ", error);    //REVIEW   
+            // console.log("Error :: configuration.js :: uploadFile :: ", error);    //REVIEW   
             throw new Error(`Error while uploadFile, Try Again :: ${error.message}`);
         }
     }
@@ -191,14 +192,14 @@ class PostService {
             )
 
             if (deleteResp) {
-                console.log("File deleted Successfully :: ", deleteResp);    //REVIEW   
+                // console.log("File deleted Successfully :: ", deleteResp);    //REVIEW   
             } else {
-                console.log("Retry to delete :: ", deleteResp);    //REVIEW   
+                // console.log("Retry to delete :: ", deleteResp);    //REVIEW   
             }
 
             return deleteResp
         } catch (error) {
-            console.log("Error :: config.js :: deleteFile :: ", error);   //REVIEW   
+            // console.log("Error :: config.js :: deleteFile :: ", error);   //REVIEW   
             throw new Error(`Error while deleteFile, Try Again :: ${error.message}`)
         }
     }
@@ -210,7 +211,7 @@ class PostService {
                 credentails.appwrite_storage,
                 fileId
             )
-            console.log('file Preview ::  ', fileResp);   //REVIEW   
+            // console.log('file Preview ::  ', fileResp);   //REVIEW   
             return fileResp;
         } catch (error) {
             throw new Error(`Error while filePreview, Try Again :: ${error.message}`)
